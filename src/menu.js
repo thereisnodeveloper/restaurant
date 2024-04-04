@@ -65,9 +65,10 @@ class MenuItem{
 function generateMenuItemForType(numOfItems, type){
     if(type !== main || type !== drink || type !==side) return
     
+    const randNum = Math.floor(Math.random() * foodData().drink.length)
     const testItem = new MenuItem(
-       foodData() Math.floor(Math.random() * foodData().drink.length)
-    )
+       foodData()[type][randNum] ) //pick random index in "drink"
+    
 
     const menuItem = []
     for(const i = 0; i < menuItem; i++)
@@ -90,8 +91,6 @@ const menuItem = []
 
 
 console.log(MenuItem.count);
-console.log(menu1);
-
 //use classes for UL LI
 
 function createLI(){
