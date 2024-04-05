@@ -125,7 +125,7 @@ function createElemLI(menuItem){
 }
 
 /**@param {Object} category  */
-function createElemUL(category){
+function createElemUL(category){        
     const ulElem = document.createElement('ul')
     ulElem.className = {category}
     category.forEach(item => {
