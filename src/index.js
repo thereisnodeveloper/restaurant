@@ -1,9 +1,10 @@
 import './style.css'
 import Placeholder from './assets/placeholder.png'
-import menuContent from './menu'
 
-import {mainMenuUL,sideMenuUL,drinkMenuUl} from "./menu.js"
+// import {mainMenuUL,sideMenuUL,drinkMenuUl} from "./menu.js"
+import {menuContent} from "./menu.js"
 
+export {appendChildBulk}
 
 function initContent(){
    const content = document.querySelector("#content")
@@ -24,7 +25,7 @@ function initContent(){
 initContent()
 
 //append in bulk
-function appendToBulk(elemToAppendTo, ...args){
+function appendChildBulk(elemToAppendTo, ...args){
  args.forEach(arg => {
     elemToAppendTo.appendChild(arg)
  })     
@@ -48,12 +49,11 @@ const elemButtonMenu = document.querySelector(".menu")
    }
 
    function switchToMenu(){
-      const elemArray = [mainMenuUL,sideMenuUL,drinkMenuUl]
+      // const elemArray = [mainMenuUL,sideMenuUL,drinkMenuUl]
 
       resetContent()
-
       // initContent()
-      appendToBulk(content, ...elemArray)
+      appendChildBulk(content, menuContent)
    }
 
    elemButtonMenu.addEventListener("click", switchToMenu)

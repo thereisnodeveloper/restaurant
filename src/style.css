@@ -13,13 +13,28 @@ body{
 
 li{
     list-style: none;
+    margin: 8px;
 }
 
 ul{
-    display:flex;
-    gap:10px
+    gap:10px;
 }
 
 h1{
     font-family: Branda;
+}
+
+
+
+.name{
+    font-weight: 900;
+}
+
+.price{
+    font-size: large;
+    font-weight: 700;
+}
+.price::before{
+    content:"$ ";
+    color:red
 }

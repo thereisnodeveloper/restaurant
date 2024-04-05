@@ -1,8 +1,9 @@
 
-export {mainMenuUL,sideMenuUL,drinkMenuUl}
+// export {mainMenuUL,sideMenuUL,drinkMenuUl}
+export {menuContent}
+import {appendChildBulk as appendChildBulk} from './index.js'
 
 
-const menuContent = document.createElement('div')
 
 const foodData = {
     main:[
@@ -46,11 +47,11 @@ const foodData = {
 //menu items in object/array
 class MenuItem{
     static count = 0
-    constructor(name,type){
+    constructor(name,foodGroup){
         this.name = name;
-        this.price = Math.floor(Math.random()*20)
+        this.price = Math.floor(Math.random()*20 + 4)
         this.description = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, consectetur."
-        this.type = type
+        this.foodGroup = foodGroup
         
         this.index = MenuItem.count
         MenuItem.count++
@@ -62,14 +63,13 @@ class MenuItem{
     price;
     description;
     photo;
-    type; //food types: main, side, drink
+    foodGroup; //food types: main, side, drink
     index
  
 }
 
 /**@param {Object[]} [numOfItems=5]  */
-function generateMenuItemForType(type, numOfItems=5){
-    //FIXME:some items are still being null, indicating random generator isn't
+function generateMenuItemForType(type, numOfItems=5,foodGroupName){
     //generating enough times
     if(!type) return
     const itemArray = new Array(numOfItems).fill(null)
@@ -86,7 +86,7 @@ function generateMenuItemForType(type, numOfItems=5){
             }
             doubleChecker.push(randNum)
 
-            itemArray[i] = new MenuItem(type[randNum], type)
+            itemArray[i] = new MenuItem(type[randNum], foodGroupName)
 
             // j++
         
@@ -95,17 +95,16 @@ function generateMenuItemForType(type, numOfItems=5){
 
     return itemArray
 }
-
+console.log();
 const [mainMenu,drinkMenu,sideMenu] = [
-    generateMenuItemForType(foodData.main, 5),
-    generateMenuItemForType(foodData.drink, 5),
-    generateMenuItemForType(foodData.side, 5),
+    generateMenuItemForType(foodData.main, 8, Object.keys(foodData)[0]),
+    generateMenuItemForType(foodData.drink, 5, Object.keys(foodData)[1]),
+    generateMenuItemForType(foodData.side, 5, Object.keys(foodData)[2]),
 ] 
 
 
 
 
-//TODO: generate li for each MenuItem
 
 
 function createElemLI(menuItem){
@@ -123,11 +122,10 @@ function createElemLI(menuItem){
     }) 
     return li
 }
-
 /**@param {Object} category  */
-function createElemUL(category){        
+function createElemUL(category, className){        
     const ulElem = document.createElement('ul')
-    ulElem.className = {category}
+    ulElem.className = className
     category.forEach(item => {
         ulElem.appendChild(createElemLI(item))
     })
@@ -136,7 +134,11 @@ function createElemUL(category){
 
 // document.body.appendChild(createElemUL(mainMenu))
 
-const mainMenuUL = createElemUL(mainMenu)
-const sideMenuUL = createElemUL(sideMenu)
-const drinkMenuUl = createElemUL(drinkMenu)
+const mainMenuUL = createElemUL(mainMenu, "menu-main")
+const sideMenuUL = createElemUL(sideMenu, "menu-side")
+const drinkMenuUl = createElemUL(drinkMenu, "menu-drink")
 
+
+
+const menuContent = document.createElement('div')
+appendChildBulk(menuContent, mainMenuUL,sideMenuUL,drinkMenuUl)
