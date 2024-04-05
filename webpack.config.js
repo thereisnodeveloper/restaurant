@@ -29,6 +29,12 @@ mode: 'development',
       },
     ],
   },
+//   resolve: {
+//     fallback: {
+//       util: require.resolve("tty/")
+//     }
+// }
+
 //   optimization: {
 //     runtimeChunk: 'single',
 //   },

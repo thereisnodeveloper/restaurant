@@ -292,6 +292,7 @@
     "to-regex-range": "^5.0.1",
     "toidentifier": "^1.0.1",
     "tslib": "^2.6.2",
+    "tty-browserify": "^0.0.1",
     "type-is": "^1.6.18",
     "undici-types": "^5.26.5",
     "unpipe": "^1.0.0",
