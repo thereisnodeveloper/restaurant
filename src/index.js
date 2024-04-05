@@ -2,7 +2,8 @@ import './style.css'
 import Placeholder from './assets/placeholder.png'
 import menuContent from './menu'
 
-console.log(menuContent);
+import createElemUL from "./menu.js"
+
 
 const content = document.querySelector("#content")
 
