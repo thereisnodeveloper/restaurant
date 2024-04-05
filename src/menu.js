@@ -1,4 +1,7 @@
 
+export {mainMenuUL,sideMenuUL,drinkMenuUl}
+
+
 const menuContent = document.createElement('div')
 
 const foodData = {
@@ -63,32 +66,30 @@ class MenuItem{
     index
  
 }
-// const testItem = new MenuItem('babo','type')
-// console.log(testItem);
 
 /**@param {Object[]} [numOfItems=5]  */
 function generateMenuItemForType(type, numOfItems=5){
+    //FIXME:some items are still being null, indicating random generator isn't
+    //generating enough times
     if(!type) return
-    //TODO: make random generator skip ones that exist
     const itemArray = new Array(numOfItems).fill(null)
     const doubleChecker = []    
     for(let i = 0; i < numOfItems; i++)
     {
-        let j = 0
+        // let j = 0
         let randNum = Math.floor(Math.random() * type.length)
-        while(
-            (!doubleChecker.some(cell => cell === randNum) 
-            && j < 15) 
-            || doubleChecker.length === 0
+        while(doubleChecker.some(cell => cell === randNum) 
+            // && j < 15
             )
-
             {
+             randNum = Math.floor(Math.random() * type.length)
+            }
             doubleChecker.push(randNum)
 
             itemArray[i] = new MenuItem(type[randNum], type)
 
-            j++
-        }
+            // j++
+        
         
     }
 
@@ -114,12 +115,11 @@ function createElemLI(menuItem){
         if(["photo", "type", "index"].includes(entry[0])) return;
 
         const propElem = document.createElement("div")
-        propElem.classList.add(entry[0])
+        propElem.classList.add(entry[0]) //adds key name to class (i.e. "price")
 
-        propElem.textContent = entry[1]
+        propElem.textContent = entry[1] //change text to value
 
         li.appendChild(propElem)
-        // propArray.push(propElem)
     }) 
     return li
 }
@@ -134,8 +134,9 @@ function createElemUL(category){
     return ulElem
 }
 
-document.body.appendChild(createElemUL(mainMenu))
+// document.body.appendChild(createElemUL(mainMenu))
 
+const mainMenuUL = createElemUL(mainMenu)
+const sideMenuUL = createElemUL(sideMenu)
+const drinkMenuUl = createElemUL(drinkMenu)
 
-
-// export {createElemUL}
