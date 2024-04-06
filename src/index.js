@@ -1,7 +1,8 @@
+
+
 import './style.css'
 import Placeholder from './assets/placeholder.png'
 
-// import {mainMenuUL,sideMenuUL,drinkMenuUl} from "./menu.js"
 import {menuContent} from "./menu.js"
 
 export {appendChildBulk}
@@ -32,7 +33,6 @@ function appendChildBulk(elemToAppendTo, ...args){
 }
 
 
-// appendToBulk(content, ...elemArray)
 
 
 // #region Event Listeners
@@ -49,10 +49,8 @@ const elemButtonMenu = document.querySelector(".menu")
    }
 
    function switchToMenu(){
-      // const elemArray = [mainMenuUL,sideMenuUL,drinkMenuUl]
 
       resetContent()
-      // initContent()
       appendChildBulk(content, menuContent)
    }
 

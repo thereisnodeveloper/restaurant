@@ -50,7 +50,7 @@ class MenuItem{
     constructor(name,foodGroup){
         this.name = name;
         this.price = Math.floor(Math.random()*20 + 4)
-        this.description = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, consectetur."
+        this.description = "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
         this.foodGroup = foodGroup
         
         this.index = MenuItem.count
@@ -103,24 +103,26 @@ const [mainMenu,drinkMenu,sideMenu] = [
 ] 
 
 
-
-
-
-
 function createElemLI(menuItem){
     // const propArray = []
-    const li = document.createElement('li')
+    const elemLI = document.createElement('li')
+    const elemNamePrice = document.createElement('div')
+    elemNamePrice.className = 'wrapper-name-price'
     Object.entries(menuItem).forEach(entry => {
-        if(["photo", "type", "index"].includes(entry[0])) return;
+        if(["photo", "type", "index", "foodGroup"].includes(entry[0])) return;
 
         const propElem = document.createElement("div")
         propElem.classList.add(entry[0]) //adds key name to class (i.e. "price")
 
         propElem.textContent = entry[1] //change text to value
 
-        li.appendChild(propElem)
+        propElem.className === "description" 
+        ? elemLI.appendChild(propElem) 
+        : elemNamePrice.appendChild(propElem)
     }) 
-    return li
+    elemLI.insertAdjacentElement("afterbegin", elemNamePrice)
+    
+    return elemLI
 }
 /**@param {Object} category  */
 function createElemUL(category, className){        
@@ -132,7 +134,6 @@ function createElemUL(category, className){
     return ulElem
 }
 
-// document.body.appendChild(createElemUL(mainMenu))
 
 const mainMenuUL = createElemUL(mainMenu, "menu-main")
 const sideMenuUL = createElemUL(sideMenu, "menu-side")
@@ -141,4 +142,6 @@ const drinkMenuUl = createElemUL(drinkMenu, "menu-drink")
 
 
 const menuContent = document.createElement('div')
+menuContent.classList.add("menu-content")
 appendChildBulk(menuContent, mainMenuUL,sideMenuUL,drinkMenuUl)
+

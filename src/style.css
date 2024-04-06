@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: Branda;
     src: url('assets/Branda-yolq.woff'), url('assets/Branda-yolq.woff2') ;
@@ -11,20 +13,56 @@ body{
     background-color: bisque;
 }
 
-li{
-    list-style: none;
-    margin: 8px;
+.menu-content{
+    background-color: red;
+    display: grid;
+    /* grid-template: 1fr / 100px 100px; */
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
+    gap: 20px
+}
+.menu-main{
+    grid-column: 1 / 2 ;
+    grid-row: 1 / 2
+}
+.menu-side{
+    grid-column: 2 / 3 ;
+    grid-row: 2 / 3
+}
+.menu-drink{
+    grid-column: 1 / 2;
+    grid-row: 3/4
+}
+
+.menu-main, .menu-side, .menu-drink{
+
+}
+
+.description{
+    font-size: 12px;
 }
 
 ul{
     gap:10px;
 }
 
+
+li{
+    list-style: none;
+    margin: 8px;
+    /* display:flex; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 h1{
     font-family: Branda;
 }
 
-
+.wrapper-name-price{
+    display: flex;
+    justify-content: space-between;
+}
 
 .name{
     font-weight: 900;
@@ -33,6 +71,7 @@ h1{
 .price{
     font-size: large;
     font-weight: 700;
+    justify-self: flex-end;
 }
 .price::before{
     content:"$ ";
