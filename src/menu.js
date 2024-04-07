@@ -2,7 +2,7 @@
 // export {mainMenuUL,sideMenuUL,drinkMenuUl}
 export {menuContent}
 import {appendChildBulk as appendChildBulk} from './index.js'
-
+import Placeholder from './assets/placeholder.png'
 
 
 const foodData = {
@@ -137,7 +137,6 @@ function createElemUL(category, className){
     })
     return ulElem
 }
-// document.body.insertAdjacentElement("afterend", element)
 
 function addDividers(elem){ //add lines that stretch between name of food and price
     const divider = document.createElement("hr")
@@ -149,10 +148,32 @@ function addDividers(elem){ //add lines that stretch between name of food and pr
 const mainMenuUL = createElemUL(mainMenu, "menu-main")
 const sideMenuUL = createElemUL(sideMenu, "menu-side")
 const drinkMenuUl = createElemUL(drinkMenu, "menu-drink")
+// addImage(mainMenuUL)
+
+
+function createImage(){
+    const placeHolder = new Image(300,300)
+    placeHolder.src = Placeholder
+    placeHolder.classList.add("placeholder")
+    return placeHolder
+}
 
 
 
 const menuContent = document.createElement('div')
 menuContent.classList.add("menu-content")
-appendChildBulk(menuContent, mainMenuUL,sideMenuUL,drinkMenuUl)
+appendChildBulk(menuContent, 
+    mainMenuUL,sideMenuUL,drinkMenuUl)
 
+    const nodeListMenu = document.querySelectorAll(".menu-content > ul ")
+    console.log('menuContent.childNodes:', menuContent.childNodes)
+   menuContent.childNodes.forEach(item =>
+    {
+        const elemWrapper = document.createElement("div")
+        elemWrapper.appendChild(createImage())
+        elemWrapper.classList.add("img-wrapper")
+
+        item.insertAdjacentElement("afterend", elemWrapper)
+        // item.insertAdjacentElement("afterend", createImage())
+    })
+    
