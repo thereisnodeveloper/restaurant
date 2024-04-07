@@ -57,3 +57,5 @@ const elemButtonMenu = document.querySelector(".menu")
    elemButtonMenu.addEventListener("click", switchToMenu)
    elemButtonHome.addEventListener("click", switchToHome)
 // #endregion
+
+switchToMenu()

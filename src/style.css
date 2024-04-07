@@ -9,6 +9,8 @@
     font-family:-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
 
+
+
 body{
     background-color: bisque;
 }
@@ -62,7 +64,9 @@ h1{
 .wrapper-name-price{
     display: flex;
     justify-content: space-between;
+    gap:8px
 }
+
 
 .name{
     font-weight: 900;
@@ -76,4 +80,10 @@ h1{
 .price::before{
     content:"$ ";
     color:red
+}
+
+hr.solid{
+    border: none;
+    border-top: 1px solid black;
+    flex: 1;
 }

@@ -113,12 +113,16 @@ function createElemLI(menuItem){
 
         const propElem = document.createElement("div")
         propElem.classList.add(entry[0]) //adds key name to class (i.e. "price")
-
+        
         propElem.textContent = entry[1] //change text to value
 
         propElem.className === "description" 
         ? elemLI.appendChild(propElem) 
         : elemNamePrice.appendChild(propElem)
+
+        if(propElem.classList.contains("name")){
+            addDividers(propElem)
+        }
     }) 
     elemLI.insertAdjacentElement("afterbegin", elemNamePrice)
     
@@ -133,7 +137,14 @@ function createElemUL(category, className){
     })
     return ulElem
 }
+// document.body.insertAdjacentElement("afterend", element)
 
+function addDividers(elem){ //add lines that stretch between name of food and price
+    const divider = document.createElement("hr")
+    divider.classList.add("solid")
+    elem.insertAdjacentElement("afterend", divider)    
+    
+}
 
 const mainMenuUL = createElemUL(mainMenu, "menu-main")
 const sideMenuUL = createElemUL(sideMenu, "menu-side")
