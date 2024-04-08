@@ -1,17 +1,14 @@
-# restaurant
-
-Classes
-Object creation constructors
-Getters and setters
-Computed names and class fields
-Private class fields and methods
-Inheritance
-Composition > Inheritance
-ES6 Modules pattern
-npm
-Webpack
-Webpack plugins and loaders
-Source mappi9ng
+# Restaurant: Concepts/Techniques utilized
+[x]Classes
+[x]Object creation constructors
+[x]Getters and setters
+[x]Computed names and class fields
+[ ]Private class fields and methods
+[x]ES6 Modules pattern (import and export)
+[x]npm
+[x]Webpack
+[x]Webpack plugins and loaders
+[x]Source mapping
 
 
 
