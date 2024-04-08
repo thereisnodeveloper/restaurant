@@ -44,6 +44,10 @@ body{
     font-size: 12px;
 }
 
+nav ul{
+    display: flex;
+}
+
 ul{
     gap:10px;
 }
@@ -96,6 +100,8 @@ hr.solid{
 
 .hours-content{
     margin-top: 50px;
+    background-color: #008020;
+    padding: 30px;
 }
 
 .hours-content p{
@@ -103,3 +109,22 @@ hr.solid{
     line-height: 150%
 }
 
+#content{
+    padding: 30px;
+}
+
+#content img{
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+#content h1{
+    text-align: center;
+}
+
+#content p{
+    margin: 30px;
+    line-height: 150%;
+}

@@ -25,6 +25,7 @@ function initContent(){
 }
 initContent()
 
+
 //append in bulk
 function appendChildBulk(elemToAppendTo, ...args){
  args.forEach(arg => {
@@ -66,4 +67,3 @@ const elemButtonHours = document.querySelector(".hours-location")
 
 // #endregion
 
-switchToHours()
