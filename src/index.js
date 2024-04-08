@@ -4,7 +4,7 @@ import './style.css'
 import Placeholder from './assets/placeholder.png'
 
 import {menuContent} from "./menu.js"
-
+import {hoursContent} from "./hours.js"
 export {appendChildBulk}
 
 function initContent(){
@@ -38,6 +38,8 @@ function appendChildBulk(elemToAppendTo, ...args){
 // #region Event Listeners
 const elemButtonHome = document.querySelector(".home")
 const elemButtonMenu = document.querySelector(".menu")
+const elemButtonHours = document.querySelector(".hours-location")
+
 
    function resetContent(){
       const content = document.querySelector('#content')
@@ -49,13 +51,19 @@ const elemButtonMenu = document.querySelector(".menu")
    }
 
    function switchToMenu(){
-
       resetContent()
       appendChildBulk(content, menuContent)
    }
 
+   function switchToHours(){
+      resetContent()
+      appendChildBulk(content, hoursContent)
+   }
+
    elemButtonMenu.addEventListener("click", switchToMenu)
    elemButtonHome.addEventListener("click", switchToHome)
+   elemButtonHours.addEventListener("click", switchToHours)
+
 // #endregion
 
-switchToMenu()
+switchToHours()

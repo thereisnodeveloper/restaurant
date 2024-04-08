@@ -93,3 +93,13 @@ hr.solid{
     /* justify-content: center; */
     place-content: center;
 }
+
+.hours-content{
+    margin-top: 50px;
+}
+
+.hours-content p{
+    text-align: center;
+    line-height: 150%
+}
+
